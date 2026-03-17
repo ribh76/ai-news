@@ -1,0 +1,63 @@
+automated ai newsletter: 
+
+what this does: 
+- collects a list of user's email addresses through an intake form (tkinter, sheety)
+- scrapes 5 news sources for AI realted articles and collects their contents using beautiful soup 
+- summaarizes the news sources (https://freeapitools.dev/) 
+- sends an email summarizing AI related news from the top 5 largest tech news sites to all the users (smtplib) 
+- logs the emals in a spreadsheet (sheety) 
+
+when run: 
+- the appication scrapes 5 news sources for AI related arricles and collects their contents. 
+- the contents are summarized and then sent to the users in the database via email. 
+- the tkinter app launches to add a user's email address 
+
+TODOS: 
+file roles: 
+data manager: mananages users and information + integrations to sheety 
+news_scraper: uses bs4 to scrape dict of sites and make calls to scrape srticles, saves to json, and sends to data manager via main 
+notification manager : sends users email of AI news everyday from news scrapper and summarizer
+summarizer: takes the json from newsscraper and formats it into summaries for being sent via notication manger. 
+ui: can be subbed for something else, but intakes emails 
+main.py: runs the sequence in the section above. 
+
+
+APIS/libraries: 
+-web scraping: bs4 
+- summarizeing articles: https://freeapitools.dev/
+- sending emails: smtplib 
+- interacting with the sheet: sheety 
+
+
+
+role of each: 
+data manager.py: (sheety )
+- get_active_users() 
+- save_articles()
+- cerate_digest() 
+- log send() 
+
+news_scraper.py: bs4 
+- fetchartivles() 
+- parse_articles() 
+return list of articles 
+
+summarizer.py: freeAPItools
+- summarize article text
+summarize batch (list, artilces) 
+
+notifcation manager.py: (SMTP) 
+- build emailbody (digest) 
+- send_email (to, content) 
+- senf_buik(users, digest) 
+
+main.py - orchestrator
+ui.py: tkinter
+- add email address() 
+- send today's email 
+
+
+
+
+
+

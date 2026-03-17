@@ -1,0 +1,114 @@
+================================================UPDATE 3/16/2026======================================================
+
+
+AI NEWS DIGEST – KNOWN ISSUES & FUTURE IMPROVEMENTS
+==================================================
+
+This document tracks current limitations of the AI News Digest system
+and planned improvements for future versions.
+
+--------------------------------------------------
+CURRENT LIMITATIONS
+--------------------------------------------------
+
+1. No Unsubscribe System
+Users cannot currently unsubscribe from the email newsletter.
+Future versions should support:
+- unsubscribe links
+- subscriber management
+- opt-in / opt-out functionality
+
+
+2. Summarizer API Limitations
+The current summarization API struggles when handling large batches
+of articles or multiple subscribers.
+
+Possible improvements:
+- migrate to a more reliable LLM API (Gemini / OpenAI / Claude)
+- add batching or queueing
+- implement retry logic
+
+
+3. Fragile Web Scraping
+The scraper relies on CSS selectors which may change when websites
+update their layout.
+
+Current fallback system:
+- BeautifulSoup selector parsing
+- HTMLParser fallback
+
+Future improvements:
+- RSS feed integration when available
+- more resilient parsing logic
+- automated selector validation
+
+
+4. No Automation / Scheduler
+The system must currently be triggered manually.
+
+Future improvement:
+- add cron job scheduling
+- or implement APScheduler
+- possible cloud deployment with scheduled execution
+
+
+5. No Testing Framework
+The project currently lacks automated tests.
+
+Future improvements:
+- unit tests for scraper functions
+- validation tests for article parsing
+- summarizer output checks
+
+
+6. Weak UI
+The current Tkinter interface is functional but outdated.
+
+Future improvements:
+- replace with Streamlit dashboard
+- or build a Flask web interface
+- allow users to manage subscriptions via UI
+
+
+7. No Analytics
+There is currently no analysis of:
+
+- article topics
+- source bias
+- trending AI themes
+- user engagement
+
+Possible future features:
+- keyword frequency analysis
+- topic clustering
+- sentiment analysis of AI coverage
+
+
+--------------------------------------------------
+PROJECT STATUS
+--------------------------------------------------
+
+Version: v1 (Initial Prototype)
+
+The current version demonstrates the full pipeline:
+
+News Sources
+   ↓
+Web Scraper
+   ↓
+Article Extraction
+   ↓
+Article Summarization
+   ↓
+Email Formatting
+   ↓
+Newsletter Delivery
+
+Primary goal of v1:
+Build a working automated AI news digest system.
+
+Future versions will focus on:
+- robustness
+- automation
+- scalability
+- user features

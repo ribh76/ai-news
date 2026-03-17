@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>{{SUBJECT}}</title>
+  <style>
+    /* ── Reset ── */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background-color: #f0f4f8;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 15px;
+      color: #1e293b;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── Outer wrapper ── */
+    .email-wrapper {
+      width: 100%;
+      padding: 32px 16px;
+      background-color: #f0f4f8;
+    }
+
+    /* ── Card container ── */
+    .email-card {
+      max-width: 640px;
+      margin: 0 auto;
+      background-color: #ffffff;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid #e2e8f0;
+    }
+
+    /* ── Header ── */
+    .header {
+      background-color: #1A56DB;
+      padding: 36px 40px 32px;
+    }
+    .header-eyebrow {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #93c5fd;
+      margin-bottom: 10px;
+    }
+    .header h1 {
+      font-size: 26px;
+      font-weight: 700;
+      color: #ffffff;
+      line-height: 1.25;
+      margin-bottom: 10px;
+    }
+    .header-meta {
+      font-size: 13px;
+      color: #bfdbfe;
+    }
+    .header-meta strong {
+      color: #ffffff;
+    }
+
+    /* ── Intro strip ── */
+    .intro-strip {
+      background-color: #eff6ff;
+      border-bottom: 1px solid #dbeafe;
+      padding: 14px 40px;
+      font-size: 13px;
+      color: #1e40af;
+      line-height: 1.5;
+    }
+
+    /* ── Body ── */
+    .body {
+      padding: 32px 40px;
+    }
+
+    /* ── Section label ── */
+    .section-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #94a3b8;
+      margin-bottom: 20px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid #f1f5f9;
+    }
+
+    /* ── Article card ── */
+    .article {
+      margin-bottom: 24px;
+      padding: 20px 22px;
+      background-color: #f8fafc;
+      border-radius: 8px;
+      border: 1px solid #e2e8f0;
+      border-left: 4px solid #1A56DB;
+    }
+    .article:last-child {
+      margin-bottom: 0;
+    }
+
+    /* Source tag */
+    .article-source {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: #1A56DB;
+      background-color: #eff6ff;
+      padding: 3px 8px;
+      border-radius: 4px;
+      margin-bottom: 10px;
+    }
+
+    /* Headline */
+    .article h2 {
+      font-size: 16px;
+      font-weight: 700;
+      line-height: 1.4;
+      margin-bottom: 10px;
+    }
+    .article h2 a {
+      color: #0f172a;
+      text-decoration: none;
+    }
+    .article h2 a:hover {
+      color: #1A56DB;
+      text-decoration: underline;
+    }
+
+    /* Summary */
+    .article-summary {
+      font-size: 14px;
+      color: #475569;
+      line-height: 1.65;
+      margin-bottom: 14px;
+    }
+
+    /* Read more link */
+    .read-more {
+      display: inline-block;
+      font-size: 13px;
+      font-weight: 700;
+      color: #1A56DB;
+      text-decoration: none;
+    }
+    .read-more:hover {
+      text-decoration: underline;
+    }
+    .read-more::after {
+      content: " →";
+    }
+
+    /* ── Divider ── */
+    .divider {
+      height: 1px;
+      background-color: #f1f5f9;
+      margin: 28px 0;
+    }
+
+    /* ── Footer ── */
+    .footer {
+      background-color: #1e293b;
+      padding: 28px 40px;
+      text-align: center;
+    }
+    .footer-logo {
+      font-size: 14px;
+      font-weight: 700;
+      color: #ffffff;
+      margin-bottom: 8px;
+    }
+    .footer p {
+      font-size: 12px;
+      color: #64748b;
+      line-height: 1.6;
+      margin-bottom: 4px;
+    }
+    .footer a {
+      color: #94a3b8;
+      text-decoration: underline;
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 600px) {
+      .header { padding: 28px 24px; }
+      .intro-strip { padding: 12px 24px; }
+      .body { padding: 24px 20px; }
+      .footer { padding: 24px 20px; }
+      .article { padding: 16px 16px; }
+      .header h1 { font-size: 22px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="email-wrapper">
+    <div class="email-card">
+
+      <!-- ── HEADER ── -->
+      <div class="header">
+        <div class="header-eyebrow">AI News Digest</div>
+        <h1>{{SUBJECT}}</h1>
+        <div class="header-meta">
+          <strong>{{DATE}}</strong> &nbsp;·&nbsp; {{ARTICLE_COUNT}} articles curated for you
+        </div>
+      </div>
+
+      <!-- ── INTRO STRIP ── -->
+      <div class="intro-strip">
+        Here's today's roundup of the most important AI stories from across the web — pulled from TechCrunch, Hacker News, The Verge, Wired, and Ars Technica.
+      </div>
+
+      <!-- ── ARTICLES ── -->
+      <div class="body">
+        <div class="section-label">Today's stories</div>
+
+        {{ARTICLE_BLOCK}}
+
+      </div>
+
+      <!-- ── FOOTER ── -->
+      <div class="footer">
+        <div class="footer-logo">AI Newsletter</div>
+        <p>You're receiving this because you subscribed.</p>
+        <p>To unsubscribe, reply to this email with "unsubscribe" in the subject line.</p>
+      </div>
+
+    </div>
+  </div>
+</body>
+</html>
